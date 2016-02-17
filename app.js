@@ -3,9 +3,9 @@
         Declaring angular module to create and render components i.e. add books to the page
      */
 
-angular.module('bigCommerceTest',[]);
+angular.module('movieRepository',[]);
 
-var app = angular.module('bigCommerceTest');
+var app = angular.module('movieRepository');
 
     app.controller('mainCtrl',['$scope','$rootScope', 'bookSv', function($scope, $rootScope, bookSv){
 
