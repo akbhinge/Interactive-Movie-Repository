@@ -1,7 +1,7 @@
-# Movie-Database-Using-AngularJS
+# Movie-Database
 A repository of movies watched!
 
-Implemented a movie reporitory to understand and get practical knowldge of Angular JS!
+Implemented a movie reporitory to understand and get practical knowledge of Angular JS!
 
 Features: 
 
