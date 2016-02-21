@@ -1,175 +1,176 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="movieRepository">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Book History</title>
+<html lang="en" ng-app="movieRepository" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie History</title>
 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="http://www.google.com/fonts#UsePlace:use/Collection:Roboto" type="text/css">
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-    </head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.google.com/fonts#UsePlace:use/Collection:Roboto" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
 
-    <body ng-controller="mainCtrl">
+<body ng-controller="mainCtrl">
 
-        <header>
+<header>
+
+    <!--
+        Added button to the nav control, used ng-click and created two classes for icons to be used instead of
+        modifying styles directly
+    -->
+    <button class="handleClose" ng-show="movies.length" ng-class="{'handleMenu': isActive}" ng-click="changeIcon()" type="button"></button>
+    <h3>My movies</h3>
+</header>
+
+<!--
+    Creating the Navigation bar
+-->
+<nav ng-class="{'handleMenu': isActive}" ng-click="changeIcon()">
+    <ul class="showMenu" ng-if="movies.length">
+
+        <!--
+          Displaying movies added to the collection in sorted order
+       -->
+        <li class="listDisplay" ng-repeat="movie in movies | orderBy: 'title'">{{movie.title}}</li>
+
+    </ul>
+</nav>
+
+
+
+<div class="container-fluid">
+    <div class="col-md-12 addComponent" ng-show="mainComponent">
+        <section>
 
             <!--
-                Added button to the nav control, used ng-click and created two classes for icons to be used instead of
-                modifying styles directly
+                Creating the component to add movies to the collection
             -->
-            <button class="handleClose" ng-show="books.length" ng-class="{'handleMenu': isActive}" ng-click="changeIcon()" type="button"></button>
-            <h3>My Books</h3>
-        </header>
 
-        <!--
-            Creating the Navigation bar
-        -->
-        <nav ng-class="{'handleMenu': isActive}" ng-click="changeIcon()">
-            <ul class="showMenu" ng-if="books.length">
+            <h2 style="color: crimson"> Welcome back!</h2>
+            <h4> It's been a while.</h4>
+            <h4 style="margin-bottom: 35px"> Watched any new movies lately?</h4>
 
-                <!--
-                  Displaying books added to the collection in sorted order
-               -->
-                <li class="listDisplay" ng-repeat="book in books | orderBy: 'title'">{{book.title}}</li>
+            <hr>
 
-            </ul>
-        </nav>
-
-
-
-        <div class="container-fluid">
-            <div class="col-md-12 addComponent" ng-show="mainComponent">
-                <section>
-
-                    <!--
-                        Creating the component to add books to the collection
-                    -->
-
-                    <h2 style="color: crimson"> Welcome back!</h2>
-                    <h4> It's been a while.</h4>
-                    <h4 style="margin-bottom: 35px"> Read any new books lately?</h4>
-
-                    <hr>
-
-                    <!--
-                        Added "marginBottom" class to ensure better mobile-view after removing br tags
-                    -->
-                    <div class="marginBottom">
-                        <div class="col-md-2">
-                            <button class="clear" ng-click="clearComponent()">NO</button>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="review" data-toggle="modal" data-target="#myModal">YES</button>
-                        </div>
-                    </div>
-
-                    <!--
-                        Used Modal class to create a component to add books using a form
-                    -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!--
-                                Modal content
-                            -->
-                            <div class="modal-content">
-                                <div class="modal-header" style="background-color: #FFFFFF">ADD NEW BOOKS!
-                                    <button type="button" class="close" data-dismiss="modal">
-                                        &times;
-                                    </button>
-                                </div>
-
-                                <div class="modal-body">
-
-                                    <!--
-                                        Form to create a new book component, used for attribute with ids
-                                    -->
-
-                                    <form method="post">
-                                        <div>
-                                            <label for="title">Title</label>
-                                            <input type="text" id="title" ng-model="book.title"/>
-                                        </div>
-                                        <div>
-                                            <label for="author">Author</label>
-                                            <input type="text" id="author" ng-model="book.author"/>
-                                        </div>
-                                        <div>
-                                            <label for="publisher">Publisher</label>
-                                            <input type="text" id="publisher" ng-model="book.publisher"/>
-                                        </div>
-                                    </form>
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default addBook" ng-click="add()" data-dismiss="modal">
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                    </div>
-                </section>
+            <!--
+                Added "marginBottom" class to ensure better mobile-view after removing br tags
+            -->
+            <div class="marginBottom">
+                <div class="col-md-2">
+                    <button class="clear" ng-click="clearComponent()">NO</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="review" data-toggle="modal" data-target="#myModal">YES</button>
+                </div>
             </div>
 
-            <book-card books="books"></book-card>
+            <!--
+                Used Modal class to create a component to add movies using a form
+            -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
 
-        <!--
-            1. Component to display collection of books
-            2. Each component is displayed in sorted order using the book title field
-        -->
+                    <!--
+                        Modal content
+                    -->
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #FFFFFF">ADD NEW MOVIES!
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
 
-            <!--<div class="col-md-12 displayComponent" ng-repeat="book in books | orderBy:'title'">-->
+                        <div class="modal-body">
 
-                <!--&lt;!&ndash;-->
-                    <!--I have taken a sample image and applied to each component as shown in the-->
-                    <!--mock design. I did not use different images for different books.-->
+                            <!--
+                                Form to create a new movie component, used for attribute with ids
+                            -->
 
-                    <!--Image source: http://whytoread.com/12-outstanding-books-that-will-blow-you-away/-->
+                            <form method="post">
+                                <div>
+                                    <label for="title">Title</label>
+                                    <input type="text" id="title" ng-model="movie.title"/>
+                                </div>
+                                <div>
+                                    <label for="director">Director</label>
+                                    <input type="text" id="director" ng-model="movie.director"/>
+                                </div>
+                                <div>
+                                    <label for="publisher">Publisher</label>
+                                    <input type="text" id="publisher" ng-model="movie.publisher"/>
+                                </div>
+                            </form>
 
-                <!--&ndash;&gt;-->
+                        </div>
 
-                <!--<div class="col-md-4 bookImage">-->
-                <!--</div>-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default addmovie" ng-click="add()" data-dismiss="modal">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <!--<div class="col-md-8  marginBottom">-->
-                    <!--<h2>{{book.title}}</h2>-->
-                    <!--<h4 style="color: gray; opacity: 0.8">{{book.author}}</h4>-->
-                    <!--<h5>{{book.publisher}}</h5>-->
-                    <!--<hr>-->
+            <div class="col-md-8">
+            </div>
+        </section>
+    </div>
 
-                    <!--<div class="marginBottom">-->
-                        <!--<div class="col-xs-6">-->
-                            <!--<button class="sample">-->
-                                <!--FREE SAMPLE-->
-                            <!--</button>-->
-                        <!--</div>-->
+    <movie-card movies="movies"></movie-card>
 
-                        <!--<div class="col-xs-6">-->
-                            <!--<button class="review">-->
-                                <!--REVIEW-->
-                            <!--</button>-->
-                        <!--</div>-->
+    <!--
+        1. Component to display collection of movies
+        2. Each component is displayed in sorted order using the movie title field
+    -->
 
-                        <!--&lt;!&ndash;-->
-                            <!--Removed br tags and made necessary modifications in css file-->
-                        <!--&ndash;&gt;-->
+    <!--<div class="col-md-12 displayComponent" ng-repeat="movie in movies | orderBy:'title'">-->
 
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
+    <!--&lt;!&ndash;-->
+    <!--I have taken a sample image and applied to each component as shown in the-->
+    <!--mock design. I did not use different images for different movies.-->
 
-        <!-- Including all the script files at the end -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="app.js" type="text/javascript"></script>
+    <!--Image source: http://whytoread.com/12-outstanding-movies-that-will-blow-you-away/-->
 
-    </body>
+    <!--&ndash;&gt;-->
+
+    <!--<div class="col-md-4 movieImage">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-8  marginBottom">-->
+    <!--<h2>{{movie.title}}</h2>-->
+    <!--<h4 style="color: gray; opacity: 0.8">{{movie.director}}</h4>-->
+    <!--<h5>{{movie.publisher}}</h5>-->
+    <!--<hr>-->
+
+    <!--<div class="marginBottom">-->
+    <!--<div class="col-xs-6">-->
+    <!--<button class="sample">-->
+    <!--FREE SAMPLE-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <!--<div class="col-xs-6">-->
+    <!--<button class="review">-->
+    <!--REVIEW-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;-->
+    <!--Removed br tags and made necessary modifications in css file-->
+    <!--&ndash;&gt;-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+<!-- Including all the script files at the end -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="app.js" type="text/javascript"></script>
+
+</body>
 </html>
