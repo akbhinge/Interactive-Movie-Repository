@@ -38,7 +38,6 @@
 </nav>
 
 
-
 <div class="container-fluid">
     <div class="col-md-12 addComponent" ng-show="mainComponent">
         <section>
@@ -47,7 +46,7 @@
                 Creating the component to add movies to the collection
             -->
 
-            <h2 style="color: crimson"> Welcome back!</h2>
+            <h2 style="color: #808000"> Welcome back!</h2>
             <h4> It's been a while.</h4>
             <h4 style="margin-bottom: 35px"> Watched any new movies lately?</h4>
 
@@ -70,7 +69,6 @@
             -->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-
                     <!--
                         Modal content
                     -->
@@ -82,11 +80,9 @@
                         </div>
 
                         <div class="modal-body">
-
                             <!--
                                 Form to create a new movie component, used for attribute with ids
                             -->
-
                             <form method="post">
                                 <div>
                                     <label for="title">Title</label>
@@ -101,7 +97,6 @@
                                     <input type="text" id="publisher" ng-model="movie.publisher"/>
                                 </div>
                             </form>
-
                         </div>
 
                         <div class="modal-footer">
@@ -119,6 +114,7 @@
     </div>
 
     <movie-card movies="movies"></movie-card>
+
 
     <!--
         1. Component to display collection of movies

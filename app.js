@@ -7,6 +7,7 @@ angular.module('movieRepository',[]);
 
 var app = angular.module('movieRepository');
 
+
 app.controller('mainCtrl',['$scope','$rootScope', 'movieSv', function($scope, $rootScope, movieSv){
 
     $rootScope.movies = [];
@@ -109,11 +110,11 @@ app.directive('movieCard',function(){
         },
         restrict:'E',
         template:"<div class='col-md-12 displayComponent' ng-repeat='movie in movies | orderBy: \"title\"'>" +
-        "<div class='col-md-4 bookImage'></div> " +
+        "<div class='col-md-4 movieImage'></div> " +
         "<div class='col-md-8  marginBottom'>" +
         "<h2>{{movie.title}}</h2> " +
         "<h4 style='color: gray; opacity: 0.8'>{{movie.director}}</h4> " +
-        "<h5>{{movie.publisher}}</h5> <hr> <div class='marginBottom'>" +
+        "<h5>{{movie.publisher}}</h5></i><i class='fa fa-star'></i><i class='fa fa-star'></i> <hr> <div class='marginBottom'>" +
         "<div class='col-xs-6'> <button class='sample'>FREE SAMPLE </button> </div> " +
         "<div class='col-xs-6'> <button class='review'>REVIEW </button> " +
         "</div>" +
