@@ -5,7 +5,7 @@ body
 {
     padding: 0;
     margin: 0;
-    background-color: black;
+    background:white;
 }
 
 /*
@@ -13,13 +13,14 @@ body
 */
 header
 {
-    background-color: #e6e6e6;
+    background-color: black;
+    color:#808000;
     padding-left: 20px;
     padding-top: 2px;
     margin: 0;
     height: 60px;
     width: 100%;
-    color: #808000;
+  //  color: #808000;
 }
 
 button
@@ -83,7 +84,8 @@ label
     padding: 15px;
     height: auto;
     width: 80%;
-    margin: 20px;
+    margin: 50px;
+    color: black;
 
 }
 
@@ -117,6 +119,7 @@ label
     display:none; /* Hide from browsers that don't support media queries */
     cursor:pointer;
     background: url(assets/ic_close_24px.svg) no-repeat center center;
+    background-size: 20px;
     float: left;
     padding: 20px;
     position: relative;
@@ -130,6 +133,7 @@ label
     display:none; /* Hide from browsers that don't support media queries */
     cursor:pointer;
     background: url(assets/ic_menu_24px.svg) no-repeat center center;
+    background-size: 20px;
     float: left;
     padding: 20px;
     position: relative;
@@ -199,4 +203,62 @@ label
         padding:10px;
     }
 
+}
+
+
+.carousel-fade,
+.carousel-inner,
+.item {
+    transition-property: opacity;
+}
+
+.item,
+.active.left,
+.active.right {
+    opacity: 0;
+}
+
+.active,
+.next.left,
+.prev.right {
+    opacity: 1;
+}
+
+.next,
+.prev,
+.active.left,
+.active.right {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+
+.carousel-control {
+    z-index: 2;
+}
+
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+    height: 500px;
+    max-width: 100%;
+    border: 1px ridge lightgray;
+
+    width: 100%;
+}
+
+.item:nth-child(1) {
+    background: url(images/pirate.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.item:nth-child(2) {
+    background: url(images/godfather.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.item:nth-child(3) {
+    background: #E46653;
 }

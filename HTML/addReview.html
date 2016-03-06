@@ -1,0 +1,178 @@
+<header>
+
+    <!--
+        Added button to the nav control, used ng-click and created two classes for icons to be used instead of
+        modifying styles directly
+    -->
+    <button class="handleClose" ng-show="movies.length" ng-class="{'handleMenu': isActive}" ng-click="changeIcon()" type="button"></button>
+    <h3>My movies</h3>
+</header>
+
+<!--
+    Creating the Navigation bar
+-->
+<nav ng-class="{'handleMenu': isActive}" ng-click="changeIcon()">
+    <ul class="showMenu" ng-if="movies.length">
+
+        <!--
+          Displaying movies added to the collection in sorted order
+       -->
+        <li class="listDisplay" ng-repeat="movie in movies | orderBy: 'title'">{{movie.title}}</li>
+
+    </ul>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="col-md-12 addComponent" ng-show="mainComponent">
+        <section>
+
+            <!--
+                Creating the component to add movies to the collection
+            -->
+
+            <h2 style="color: #808000"> Welcome back!</h2>
+            <h4> It's been a while.</h4>
+            <h4 style="margin-bottom: 35px"> Watched any new movies lately?</h4>
+
+            <hr>
+
+            <!--
+                Added "marginBottom" class to ensure better mobile-view after removing br tags
+            -->
+            <div class="marginBottom">
+                <div class="col-md-2">
+                    <button class="clear" ng-click="clearComponent()">NO</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="review" data-toggle="modal" data-target="#myModal">YES</button>
+                </div>
+            </div>
+
+            <!--
+                Used Modal class to create a component to add movies using a form
+            -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!--
+                        Modal content
+                    -->
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #FFFFFF">ADD NEW MOVIES!
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <!--
+                                Form to create a new movie component, used for attribute with ids
+                            -->
+                            <form method="post">
+                                <div>
+                                    <label for="title">Title</label>
+                                    <input type="text" id="title" ng-model="movie.title"/>
+                                </div>
+                                <div>
+                                    <label for="director">Director</label>
+                                    <input type="text" id="director" ng-model="movie.director"/>
+                                </div>
+                                <div>
+                                    <label for="publisher">Publisher</label>
+                                    <input type="text" id="publisher" ng-model="movie.publisher"/>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default addmovie" ng-click="add()" data-dismiss="modal">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+            </div>
+        </section>
+    </div>
+
+    <movie-card movies="movies"></movie-card>
+
+
+    <!--
+        1. Component to display collection of movies
+        2. Each component is displayed in sorted order using the movie title field
+    -->
+
+    <!--<div class="col-md-12 displayComponent" ng-repeat="movie in movies | orderBy:'title'">-->
+
+    <!--&lt;!&ndash;-->
+    <!--I have taken a sample image and applied to each component as shown in the-->
+    <!--mock design. I did not use different images for different movies.-->
+
+    <!--Image source: http://whytoread.com/12-outstanding-movies-that-will-blow-you-away/-->
+
+    <!--&ndash;&gt;-->
+
+    <!--<div class="col-md-4 movieImage">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-8  marginBottom">-->
+    <!--<h2>{{movie.title}}</h2>-->
+    <!--<h4 style="color: gray; opacity: 0.8">{{movie.director}}</h4>-->
+    <!--<h5>{{movie.publisher}}</h5>-->
+    <!--<hr>-->
+
+    <!--<div class="marginBottom">-->
+    <!--<div class="col-xs-6">-->
+    <!--<button class="sample">-->
+    <!--FREE SAMPLE-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <!--<div class="col-xs-6">-->
+    <!--<button class="review">-->
+    <!--REVIEW-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;-->
+    <!--Removed br tags and made necessary modifications in css file-->
+    <!--&ndash;&gt;-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<div class="footer" style="height: 100px; padding: 50px;">
+    <div class="container-fluid">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="btn btn-success">ABOUT</div>
+        </div>
+        <div class="col-md-4">
+            <div class="btn btn-success">FUTURE WORK</div>
+        </div>
+    </div>
+</div>
