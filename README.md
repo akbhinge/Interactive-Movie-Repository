@@ -10,3 +10,8 @@ Features:
 3. The collection of movie repo displayed in sorted order!
 4. Working on able to add reviews to movie-card
 5. The web application is created using different features of Angular JS
+
+
+-- 
+# Technologies Used-
+HTML%, CSs3, Bootstrap, Javascript, Angular JS, MongoDB, Node.js
