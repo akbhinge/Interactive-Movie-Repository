@@ -14,4 +14,4 @@ Features:
 
 -- 
 # Technologies Used-
-HTML%, CSs3, Bootstrap, Javascript, Angular JS, MongoDB, Node.js
+HTML5, CSs3, Bootstrap, Javascript, Angular JS, MongoDB, Node.js
