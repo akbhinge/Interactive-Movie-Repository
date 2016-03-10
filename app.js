@@ -9,6 +9,7 @@ var app = angular.module('movieRepository',['ngRoute']);
 
 app.config(function($routeProvider){
 
+
     $routeProvider
         .when('/',{
             templateUrl: "HTML/welcome.html",
@@ -30,4 +31,3 @@ app.config(function($routeProvider){
         });
 
 });
-

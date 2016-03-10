@@ -72,8 +72,9 @@ app.controller('addController',['$scope','$rootScope', 'movieSv', function($scop
         }
     };
 
-
-
+    $scope.future= function(){
+            console.log("Under construction");
+    };
 
 
 }]);

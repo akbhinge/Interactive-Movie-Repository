@@ -10,4 +10,5 @@ app.controller('welcomeController',['$scope', '$location', function($scope, $loc
      $scope.getPage = function(){
             $location.path('/getReview');
         };
+
 }]);

@@ -5,7 +5,7 @@ body
 {
     padding: 0;
     margin: 0;
-    background:white;
+    background: white;
 }
 
 /*
@@ -79,7 +79,7 @@ label
 
 .addComponent
 {
-    background-color: white;
+    background-color: lightgray;
     box-shadow: 0 0 10px 2px #999;
     padding: 15px;
     height: auto;
@@ -205,60 +205,11 @@ label
 
 }
 
-
-.carousel-fade,
-.carousel-inner,
-.item {
-    transition-property: opacity;
-}
-
-.item,
-.active.left,
-.active.right {
-    opacity: 0;
-}
-
-.active,
-.next.left,
-.prev.right {
-    opacity: 1;
-}
-
-.next,
-.prev,
-.active.left,
-.active.right {
-    left: 0;
-    transform: translate3d(0, 0, 0);
-}
-
-
-.carousel-control {
-    z-index: 2;
-}
-
-html,
-body,
-.carousel,
-.carousel-inner,
-.carousel-inner .item {
-    height: 500px;
-    max-width: 100%;
-    border: 1px ridge lightgray;
-
-    width: 100%;
-}
-
-.item:nth-child(1) {
-    background: url(images/pirate.jpg) no-repeat center center;
-    background-size: cover;
-}
-
-.item:nth-child(2) {
+.welcome{
     background: url(images/godfather.jpg) no-repeat center center;
-    background-size: cover;
-}
-
-.item:nth-child(3) {
-    background: #E46653;
+    padding-top: 400px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: lightgray;
 }
