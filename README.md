@@ -18,3 +18,7 @@ HTML5, CSS3, Bootstrap, Javascript, Angular JS
 
 - Server side work to be done using MongoDB, Node.js
 - Future Scope- d3.js can be used to display different ratings of movies using bar, charts
+
+--
+#By
+- Akshay Bhinge
