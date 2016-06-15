@@ -16,9 +16,10 @@ Features:
 # Technologies Used-
 HTML5, CSS3, Bootstrap, Javascript, jQuery, Angular JS
 
+Future Scope:
+
 - Server side work to be done using MongoDB, Node.js
-- Future Scope
-- - d3.js can be used to display different ratings of movies using bar, charts
+- d3.js can be used to display different ratings of movies using bar, charts
 - Able to store and get data from server using a NoSql database like MongoDB. Get experience working on MEAN stack.
 
 --
