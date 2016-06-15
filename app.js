@@ -1,3 +1,4 @@
+'use strict';
 
 /*
  Declaring angular module to create and render components i.e. add movies to the page
@@ -10,7 +11,7 @@ angular.module('movieRepository',['ngRoute']);
 var movieRepository = angular.module('movieRepository', ['ngRoute']);
 
 // Configure routing for the application
-movieRepository.config(['$routeProvider', function($routeProvider, $locationProvider){
+movieRepository.config(['$routeProvider', function($routeProvider){
 
 // Setting html5Mode as true to remove hashtag
    // $locationProvider.html5Mode(true);
